@@ -5,6 +5,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 // body parser wasn't declared therefore it couldnt find the module. first write the line on line 5 and then npm i or npm install to make sure all the missing packages are installed. Beyond that check the package.json to make sure it installed.
 
+const PORT = process.env.PORT || 3000;
+
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -33,7 +35,7 @@ app.get('favorites', function(req, res){
 }});
 // missing another closing curly bracket on line 31
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
   console.log("Listening on port 3000");
 });
 //app.list isnt a function. Have to spell out app.listen

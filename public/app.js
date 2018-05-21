@@ -10,7 +10,7 @@ getMovie = () => {
   let searchvalue = document.getElementById('searchinput').value;
 // this allows me to get this information from the input field so I can use it later.
 
-  request.open('GET', 'http://www.omdbapi.com/?apikey=ff967ee9&s='+ searchvalue, true);
+  request.open('GET', 'https://www.omdbapi.com/?apikey=ff967ee9&s='+ searchvalue, true);
 
   request.onload = function (){
 

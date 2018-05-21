@@ -55,10 +55,9 @@ getMovie = () => {
         // } else {
         //
         // }
+        // });
         //ongoing code to allow the click on the title to initiate the information to display
 
-
-        });
         container.appendChild(card);
         card.appendChild(h1);
         card.appendChild(moviedescr);

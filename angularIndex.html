@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="MovieApp">
+  <head>
+    <meta charset="utf-8"><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="angularapp.js" charset="utf-8"></script> 
+    <title></title>
+  </head>
+  <body ng-controller='MainController as ctrl'>
+
+    <div>
+      <h1>{{ctrl.movie.Title}}</h1>
+      <p>{{ctrl.movie.Year}}</p>
+      <img ng-src='{{ctrl.movie.Poster}}'/>
+    </div>
+
+<div ng-repeat='movie in ctrl.movies.Search'>
+  <button ng-click='movie.show = true'>{{movie.Title}}</button>
+  <p ng-if='movie.show'>{{movie.Year}}</p>
+  <img ng-if='movie.show' ng-src="{{movie.Poster}}">
+</div>
+
+<form name="myForm" onsubmit="getMovie()" method="post">
+Name: <input id="searchinput" type="text" name="fname">
+<input type="submit" value="Submit">
+</form>
+
+  </body>
+</html>

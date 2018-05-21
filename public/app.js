@@ -8,18 +8,19 @@ getMovie = () => {
   console.log('getting movie...');
 
   let searchvalue = document.getElementById('searchinput').value;
-  // console.log(searchvalue);
+// this allows me to get this information from the input field so I can use it later.
 
   request.open('GET', 'http://www.omdbapi.com/?apikey=ff967ee9&s='+ searchvalue, true);
 
   request.onload = function (){
-    // let ID= 0;
+
     var data = JSON.parse(this.response);
     if (request.status >= 200 && request.status < 400) {
       data.Search.forEach(movie => {
         // console.log("this is movie", movie.Title);
         // console.log("this is the year", movie.Year);
-        // console.log("this is the poster", movie.Poster);
+        // console.log("this is the poster", movie.Poster);\
+        //testing to see whether or not the data from the movie was coming through
 
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
@@ -31,21 +32,32 @@ getMovie = () => {
         // should display/hide the children
         // children---- year, poster
         // parent---title
+        //pseudocode written for the next portion where I try to enable click hidden functionality
 
         const moviedescr = document.createElement('div');
         moviedescr.setAttribute('class','moviedesc')
 
         const p = document.createElement('p');
+        p.setAttribute('class', 'moviedisplay');
         p.textContent= movie.Year;
-        p.style.display="none";
+        p.style.display="block";
 
 
         const poster = document.createElement('img');
+        poster.setAttribute('class', 'moviedisplay');
         poster.src= movie.Poster;
-        poster.style.display="none";
+        poster.style.display="block";
 
-        h1.addEventListener("click",function(e){
-          e.target.querySelector('.moviedescr').style.display = "block";
+        // .target.querySelector('moviedisplay')
+        // h1.addEventListener("click",function(e){
+        //
+        //   if (e.p.style.display == "none" && e.poster.style.display == "none") {p.style.display == "block"; poster.style.display == "block";
+        // } else {
+        //
+        // }
+        //ongoing code to allow the click on the title to initiate the information to display
+
+
         });
         container.appendChild(card);
         card.appendChild(h1);
@@ -59,6 +71,7 @@ getMovie = () => {
       const errorMessage = document.createElement('marquee');
       errorMessage.textContent = `not displaying content`;
       app.appendChild(errorMessage);
+      //fun error message I found online
     }
   }
   request.send();

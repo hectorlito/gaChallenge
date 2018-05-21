@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 // body parser wasn't declared therefore it couldnt find the module. first write the line on line 5 and then npm i or npm install to make sure all the missing packages are installed. Beyond that check the package.json to make sure it installed.
 
 const PORT = process.env.PORT || 3000;
+// needed to host locally as well as on Heroku
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false }))
